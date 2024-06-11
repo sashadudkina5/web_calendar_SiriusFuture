@@ -1,0 +1,45 @@
+// Custom styles for FullCalendar
+.calendar_section {
+
+    max-height: 70%;
+
+    .fc-header-toolbar {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        padding: 10px;
+        justify-content: start;
+
+        .fc-toolbar-title {
+            font-size: 1.25rem;
+            color: #343a40;
+            text-transform: capitalize;
+        }
+
+        .fc-button {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 0 5px;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+
+    .fc-daygrid-day {
+        .fc-day-today {
+            background-color: #ffeb3b; /* Yellow background color for today's cell */
+            color: #000; /* Black text color */
+            font-weight: bold; /* Bold text */
+        }
+    }
+        
+
+    .fc-event {
+        background-color: #28a745;
+        border: none;
+        color: #fff;
+    }
+}

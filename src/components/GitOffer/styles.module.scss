@@ -1,0 +1,33 @@
+@import "../../scss-styles/variables.scss";
+
+.gift_wrapper {
+    background-color: $contrast_text_color;
+    padding: 16px 30px 16px 16px;
+    border-radius: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-image: url("../../images/gift.png");
+    background-repeat: no-repeat;
+    background-position: bottom 0px right 0px;
+
+    & a {
+        background-color: $gift_link_color;
+        border-radius: 15px;
+        padding: 8px 16px;
+        font-size: 10px;
+        color: $main_text_color;
+        text-decoration: none;
+    }
+}
+
+.gift_title {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.gift_description {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 15px;
+}

@@ -1,0 +1,37 @@
+@import "./variables.scss";
+
+@mixin user_side_components {
+    border-radius: 20px;
+    padding: 16px;
+    padding-bottom: 60px;
+    min-height: 115px;
+    background-repeat: no-repeat;
+    background-position: bottom 12px right 12px;
+    width: 160px;
+}
+
+@mixin user_side_components_titles {
+    margin: 0;
+    font-size: 22px;
+}
+
+@mixin user_lessons_blocks {
+    border: 1px solid $active_color;
+    border-radius: 20px;
+    height: fit-content;
+    padding: 28px 28px 30px 28px;
+    background-color: $contrast_text_color;
+}
+
+@mixin user_lessons_blocks_title {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+@mixin user_lessons_blocks_button {
+    background-color: $student_blocks;
+    border-radius: 30px;
+    padding: 9px;
+    border: none;
+}

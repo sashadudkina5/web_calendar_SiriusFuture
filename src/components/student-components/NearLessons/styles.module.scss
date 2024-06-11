@@ -1,0 +1,17 @@
+@import "../../../scss-styles/mixins.scss";
+@import "../../../scss-styles/variables.scss";
+
+.lessons_wrapper {
+    @include user_lessons_blocks;
+    width: 60%;
+}
+
+
+.lessons_title {
+    @include user_lessons_blocks_title;
+}
+
+.lessons_button {
+    @include user_lessons_blocks_button;
+}
+
