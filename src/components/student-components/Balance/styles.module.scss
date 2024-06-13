@@ -15,7 +15,7 @@
     margin-top: 36px;
     width: 100%;
     font-size: 20px;
-    margin-top: auto;
+    margin-top: 10px;
 }
 
 .balance_list {
@@ -32,7 +32,7 @@
 .balance_list_item {
     @include user_list_items;
     word-break: break-all;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .balance_list_count {
@@ -41,7 +41,7 @@
     height: 40px;
     padding: 10px;
     border-radius: 50%;
-    font-size: 26px;
+    font-size: 22px;
     display: flex;
     justify-content: center;
     align-items: center;

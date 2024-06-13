@@ -7,12 +7,14 @@
 .main_upper_container {
     display: flex;
     gap: 20px;
+    height: 40%;
 }
 
 .blocks {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 60%;
 }
 
 .main_low_container {

@@ -1,7 +1,7 @@
 {
-  "homepage": "https://sashadudkina5.github.io/web_calendar_SiriusFuture/",
   "name": "my-app",
   "version": "0.1.0",
+  "homepage": "https://sashadudkina5.github.io/web_calendar_SiriusFuture/",
   "private": true,
   "dependencies": {
     "@fullcalendar/core": "^6.1.14",
