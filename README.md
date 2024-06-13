@@ -36,6 +36,7 @@ Use the following credentials to access the application:
 
 - Ensure Redux DevTools Extension is installed in your browser for debugging Redux state.
 - The project is built with TypeScript for better type safety and maintainability.
+- The sum time of the work on the project is 17 hours.
 
 
 ## Installation
