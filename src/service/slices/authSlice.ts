@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AuthState, loginPaylpad, UserInfo } from "../types";
+import { AuthState, loginPaylpad } from "../types";
 
 const initialState: AuthState = {
   isAuthenticated: false,
@@ -28,10 +28,12 @@ const authSlice = createSlice({
     logout(state) {
       Object.assign(state, initialState);
     },
-    toggleUser(state, action: PayloadAction<UserInfo>) {
+    toggleUser(state, action: PayloadAction<loginPaylpad>) {
       state.isAuthenticated = true;
-      state.userInfo = action.payload;
-      state.extraUserInfo = [action.payload];
+      state.error = null;
+      state.userInfo = action.payload.userInfo;
+      state.extraUserInfo = action.payload.extraUserInfo;
+      state.scheduleInfo = action.payload.scheduleInfo;
     },
     setSelectedSubject(state, action: PayloadAction<string>) {
       state.selectedSubjects = action.payload;
@@ -39,7 +41,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { loginSuccess, loginFailure, logout, setSelectedSubject } =
+export const { loginSuccess, loginFailure, logout, setSelectedSubject, toggleUser } =
   authSlice.actions;
 
 export default authSlice.reducer;

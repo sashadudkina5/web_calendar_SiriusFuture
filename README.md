@@ -21,11 +21,13 @@ Use the following credentials to access the application:
    
 3. Redux State Persistence: State managed by Redux is persisted in the browser using Redux Persister, preventing state reset on page refresh.
    
-4. Data Display: Main page content is populated from Redux store data.
+4. Data Display: Main page content is dynamically populated and calculated from Redux store data using JavaScript.
    
 5. Logout Functionality: Logout button available in the top menu.
    
 6. Mock Data: All data displayed is mock data fetched from Redux and updated through actions.
+
+7. Toggle between users to display different data.
 
 
 ## Additional Notes

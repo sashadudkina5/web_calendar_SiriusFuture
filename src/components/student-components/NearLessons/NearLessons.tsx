@@ -3,17 +3,20 @@ import { useAppSelector } from "../../../service/store";
 import { monthDeclensions } from "../../../utils/constants";
 import styles from "./styles.module.scss";
 import { ReactComponent as TeacherIcon } from "../../../images/teacher.svg";
+import { useMemo } from "react";
 
 export default function NearLessons() {
   const scheduleInfo = useAppSelector(getUserSchedule);
 
-  const upcomingLessons = scheduleInfo
-    .filter((lesson) => new Date(lesson.startTime) > new Date())
-    .sort(
-      (a, b) =>
-        new Date(a.startTime).getTime() - new Date(b.startTime).getTime()
-    )
-    .slice(0, 3);
+  const upcomingLessons = useMemo(() => {
+    return scheduleInfo
+      .filter((lesson) => new Date(lesson.startTime) > new Date())
+      .sort(
+        (a, b) =>
+          new Date(a.startTime).getTime() - new Date(b.startTime).getTime()
+      )
+      .slice(0, 3);
+  }, [scheduleInfo]);
 
   if (upcomingLessons.length === 0) {
     return (

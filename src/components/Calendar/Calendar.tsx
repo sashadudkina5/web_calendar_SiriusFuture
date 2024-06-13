@@ -5,15 +5,26 @@ import { useAppSelector } from "../../service/store";
 import { getSelectedSubject, getUserSchedule } from "../../service/selectors";
 import { EventContentArg } from "@fullcalendar/core";
 import { ReactComponent as PayStatus } from "../../images/pay-status.svg";
+import { useMemo } from "react";
 
 export default function Calendar() {
   const scheduleInfo = useAppSelector(getUserSchedule);
   const selectedSubject = useAppSelector(getSelectedSubject);
 
-  const events = selectedSubject
-    ? scheduleInfo
-        .filter((event) => event.subjectName === selectedSubject)
-        .map((event) => ({
+  const events = useMemo(() => {
+    return selectedSubject
+      ? scheduleInfo
+          .filter((event) => event.subjectName === selectedSubject)
+          .map((event) => ({
+            title: event.subjectName,
+            start: event.startTime,
+            end: event.endTime,
+            extendedProps: {
+              status: event.status,
+              paid: event.paid,
+            },
+          }))
+      : scheduleInfo.map((event) => ({
           title: event.subjectName,
           start: event.startTime,
           end: event.endTime,
@@ -21,16 +32,8 @@ export default function Calendar() {
             status: event.status,
             paid: event.paid,
           },
-        }))
-    : scheduleInfo.map((event) => ({
-        title: event.subjectName,
-        start: event.startTime,
-        end: event.endTime,
-        extendedProps: {
-          status: event.status,
-          paid: event.paid,
-        },
-      }));
+        }));
+  }, [scheduleInfo, selectedSubject]);
 
   const renderEventContent = (eventInfo: EventContentArg) => {
     const { start, end, title, extendedProps } = eventInfo.event;
@@ -46,8 +49,6 @@ export default function Calendar() {
       : "";
     const status = extendedProps.status;
     const isPaid = !extendedProps.paid;
-
-    console.log(extendedProps);
 
     //styles depending on status
     let backgroundColor;

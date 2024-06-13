@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../images/logo.png";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   testUser,
   testUserInfo,
@@ -19,39 +19,7 @@ import showIcon from "../../images/show_password.svg";
 import { toggleLangEng, toggleLangRu } from "../../service/slices/langSlice";
 
 export default function LoginPage() {
-  const getText = (key: string) => {
-    switch (key) {
-      case "title":
-        return lang === "RU"
-          ? "Вход в Sirius Future"
-          : "Login to Sirius Future";
-      case "emailPlaceholder":
-        return lang === "RU" ? "Электронная почта" : "E-mail";
-      case "passwordPlaceholder":
-        return lang === "RU" ? "Пароль" : "Password";
-      case "rememberMe":
-        return lang === "RU" ? "Запомнить меня" : "Remember me";
-      case "loginButton":
-        return lang === "RU" ? "Войти" : "Login";
-      case "forgotPassword":
-        return lang === "RU" ? "Я забыл пароль" : "Forgot Password";
-      case "loginAsTrainer":
-        return lang === "RU" ? "Войти как тренер" : "Login as Trainer";
-      case "noAccount":
-        return lang === "RU" ? "Нет аккаунта?" : "Don't have an account?";
-      case "register":
-        return lang === "RU" ? "Зарегистрироваться" : "Register";
-      case "error":
-        return lang === "RU"
-          ? "Неверный логин или пароль"
-          : "Invalid email or password";
-      default:
-        return "";
-    }
-  };
-
   const useSelector = useAppSelector;
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
@@ -59,17 +27,16 @@ export default function LoginPage() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const lang = useAppSelector(getCurrentLang);
-
+  const loginError = useSelector(getLoginError);
+  const isAuthenticated = useSelector(getAuthStatus);
   const location = useLocation();
 
-  const loginError = useSelector(getLoginError);
   const handlePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
   const handleLangChange = () => {
     if (lang === "RU") {
-      console.log("d");
       dispatch(toggleLangEng());
     } else if (lang === "EN") {
       dispatch(toggleLangRu());
@@ -81,7 +48,22 @@ export default function LoginPage() {
     fontSize: "40px",
   };
 
-  //imitation of backend request
+  const textContent = useMemo(() => {
+    return {
+      title: lang === "RU" ? "Вход в Sirius Future" : "Login to Sirius Future",
+      emailPlaceholder: lang === "RU" ? "Электронная почта" : "E-mail",
+      passwordPlaceholder: lang === "RU" ? "Пароль" : "Password",
+      rememberMe: lang === "RU" ? "Запомнить меня" : "Remember me",
+      loginButton: lang === "RU" ? "Войти" : "Login",
+      forgotPassword: lang === "RU" ? "Я забыл пароль" : "Forgot Password",
+      loginAsTrainer: lang === "RU" ? "Войти как тренер" : "Login as Trainer",
+      noAccount: lang === "RU" ? "Нет аккаунта?" : "Don't have an account?",
+      register: lang === "RU" ? "Зарегистрироваться" : "Register",
+      error: lang === "RU" ? "Неверный логин или пароль" : "Invalid email or password",
+    };
+  }, [lang]);
+
+  // Imitation of backend request
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -95,14 +77,12 @@ export default function LoginPage() {
           extraUserInfo: [extraUserInfo],
           scheduleInfo: scheduleInfo,
         })
-      ); //the data is passed here only to imitate backend response and update store data
+      ); // The data is passed here only to imitate backend response and update store data
       navigate("/user");
     } else {
-      dispatch(loginFailure(getText("error")));
+      dispatch(loginFailure(textContent.error));
     }
   };
-
-  const isAuthenticated = useSelector(getAuthStatus);
 
   if (isAuthenticated) {
     return <Navigate to={"/user"} state={{ from: location }} />;
@@ -112,14 +92,14 @@ export default function LoginPage() {
     <section className={styles.login_section}>
       <div className={styles.login_container}>
         <img src={logo} alt="Sirius Future Logo" />
-        <h1 className={styles.login_title}>{getText("title")}</h1>
+        <h1 className={styles.login_title}>{textContent.title}</h1>
         <form className={styles.login_form} onSubmit={handleSubmit}>
           <label htmlFor="email">
             <input
               type="email"
               id="email"
               name="email"
-              placeholder={getText("emailPlaceholder")}
+              placeholder={textContent.emailPlaceholder}
               className={styles.login_data}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -129,7 +109,7 @@ export default function LoginPage() {
 
           <label className={styles.login_data__label} htmlFor="password">
             <input
-              placeholder={getText("passwordPlaceholder")}
+              placeholder={textContent.passwordPlaceholder}
               className={styles.login_data}
               value={password}
               id="password"
@@ -153,7 +133,7 @@ export default function LoginPage() {
             htmlFor="rememberMe"
           >
             <input type="checkbox" id="rememberMe" name="rememberMe" />
-            <p className={styles.login_remember_me}>{getText("rememberMe")}</p>
+            <p className={styles.login_remember_me}>{textContent.rememberMe}</p>
           </label>
 
           <p className={styles.login_error}>{loginError}</p>
@@ -163,24 +143,24 @@ export default function LoginPage() {
             className={styles.login_button}
             disabled={!email || !password}
           >
-            {getText("loginButton")}
+            {textContent.loginButton}
           </button>
         </form>
 
         <div className={styles.login_options}>
           <Link to="#" className={styles.login_option}>
-            {getText("forgotPassword")}
+            {textContent.forgotPassword}
           </Link>
           <Link to="#" className={styles.login_option}>
-            {getText("loginAsTrainer")}
+            {textContent.loginAsTrainer}
           </Link>
         </div>
       </div>
 
       <div className={styles.login_no_data_wrapper}>
-        <p className={styles.login_no_data}>{getText("noAccount")}</p>
+        <p className={styles.login_no_data}>{textContent.noAccount}</p>
         <Link to="#" className={styles.login_no_data_register}>
-          {getText("register")}
+          {textContent.register}
         </Link>
       </div>
 

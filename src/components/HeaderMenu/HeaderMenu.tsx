@@ -7,7 +7,14 @@ import { closeHeaderMenu } from "../../service/slices/menuSlice";
 import { useAppDispatch, useAppSelector } from "../../service/store";
 import styles from "./styles.module.scss";
 import exit from "../../images/exit.svg";
-import { logout } from "../../service/slices/authSlice";
+import { logout, toggleUser } from "../../service/slices/authSlice";
+import {
+  extraUserInfo,
+  scheduleInfo,
+  scheduleInfoExtra,
+  testUserInfo,
+} from "../../utils/mock-data";
+import { useState } from "react";
 
 export default function HeaderMenu() {
   const currentUser = useAppSelector(getUserInfo);
@@ -22,6 +29,33 @@ export default function HeaderMenu() {
   const handleLogout = () => {
     dispatch(logout());
     dispatch(closeHeaderMenu());
+  };
+
+  //this check is necessary because mock data stays the same
+  const [activeUserType, setActiveUserType] = useState<"main" | "extra">(
+    "main"
+  );
+
+  const handleToggleUser = () => {
+    if (activeUserType === "main") {
+      dispatch(
+        toggleUser({
+          userInfo: extraUserInfo,
+          extraUserInfo: [testUserInfo],
+          scheduleInfo: scheduleInfoExtra,
+        })
+      );
+      setActiveUserType("extra");
+    } else {
+      dispatch(
+        toggleUser({
+          userInfo: testUserInfo,
+          extraUserInfo: [extraUserInfo],
+          scheduleInfo: scheduleInfo,
+        })
+      );
+      setActiveUserType("main");
+    }
   };
 
   return (
@@ -52,6 +86,7 @@ export default function HeaderMenu() {
                 <li
                   key={user.id}
                   className={`${styles.you_item} ${styles.extra_item}`}
+                  onClick={handleToggleUser}
                 >
                   <img
                     src={user.userPhoto}
