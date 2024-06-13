@@ -1,4 +1,3 @@
-import Calendar from "../../../components/Calendar/Calendar";
 import Discount from "../../../components/Discount/Discount";
 import Balance from "../../../components/student-components/Balance/Balance";
 import Countdown from "../../../components/student-components/Countdown/Countdown";

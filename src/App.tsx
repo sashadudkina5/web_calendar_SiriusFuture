@@ -5,7 +5,7 @@ import ProtectedRouteElement from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route

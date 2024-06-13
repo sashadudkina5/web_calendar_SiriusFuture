@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../images/logo.png";
 import { useState } from "react";
-import { testUser, testUserInfo, extraUserInfo } from "../../utils/mock-data";
+import { testUser, testUserInfo, extraUserInfo, scheduleInfo } from "../../utils/mock-data";
 import { useAppDispatch, useAppSelector } from "../../service/store";
 import { loginFailure, loginSuccess } from "../../service/slices/authSlice";
 import { getAuthStatus, getCurrentLang, getLoginError } from "../../service/selectors";
@@ -80,6 +80,7 @@ export default function LoginPage() {
         loginSuccess({
           userInfo: testUserInfo,
           extraUserInfo: [extraUserInfo],
+          scheduleInfo: scheduleInfo
         })
       ); //the data is passed here only to imitate backend response and update store data
       navigate("/user");
@@ -102,9 +103,11 @@ export default function LoginPage() {
         <img src={logo} alt="Sirius Future Logo" />
         <h1 className={styles.login_title}>{getText('title')}</h1>
         <form className={styles.login_form} onSubmit={handleSubmit}>
-          <label>
+          <label htmlFor="email">
             <input
               type="email"
+               id="email"
+               name="email"
               placeholder={getText('emailPlaceholder')}
               className={styles.login_data}
               value={email}
@@ -113,11 +116,13 @@ export default function LoginPage() {
             />
           </label>
 
-          <label className={styles.login_data__label}>
+          <label className={styles.login_data__label} htmlFor="password">
             <input
               placeholder={getText('passwordPlaceholder')}
               className={styles.login_data}
               value={password}
+              id="password"
+            name="password"
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="off"
               type={isPasswordVisible ? 'text' : 'password'}
@@ -132,8 +137,8 @@ export default function LoginPage() {
             </span>
           </label>
 
-          <label className={styles.login_remember_me_label}>
-            <input type="checkbox" />
+          <label className={styles.login_remember_me_label} htmlFor="rememberMe">
+            <input type="checkbox"  id="rememberMe" name="rememberMe"/>
             <p className={styles.login_remember_me}>{getText('rememberMe')}</p>
           </label>
 

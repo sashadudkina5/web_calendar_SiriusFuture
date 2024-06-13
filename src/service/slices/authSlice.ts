@@ -7,6 +7,7 @@ const initialState: AuthState = {
     userInfo: null,
     scheduleInfo: [],
     extraUserInfo: [],
+    selectedSubjects: undefined,
 };
 
 const authSlice = createSlice({
@@ -18,6 +19,7 @@ const authSlice = createSlice({
             state.error = null;
             state.userInfo = action.payload.userInfo;
             state.extraUserInfo = action.payload.extraUserInfo;
+            state.scheduleInfo = action.payload.scheduleInfo;
         },
         loginFailure(state, action: PayloadAction<string>) {
             state.isAuthenticated = false;
@@ -30,10 +32,13 @@ const authSlice = createSlice({
             state.isAuthenticated = true;
             state.userInfo = action.payload;
             state.extraUserInfo = [action.payload];
+        },
+        setSelectedSubject(state, action: PayloadAction<string>) {
+            state.selectedSubjects = action.payload;
         }
     }
 });
 
-export const { loginSuccess, loginFailure, logout } = authSlice.actions;
+export const { loginSuccess, loginFailure, logout , setSelectedSubject} = authSlice.actions;
 
 export default authSlice.reducer;

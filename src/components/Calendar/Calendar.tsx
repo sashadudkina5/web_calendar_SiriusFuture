@@ -1,67 +1,50 @@
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import "./styles.scss";
+import { useAppSelector } from '../../service/store';
+import { getSelectedSubject, getUserSchedule } from '../../service/selectors';
+import { transformEvents } from '../../utils/helper-fuctions';
+import { EventContentArg } from '@fullcalendar/core';
 
 
 export default function Calendar () {
+    const scheduleInfo =  useAppSelector(getUserSchedule);
+const selectedSubject = useAppSelector(getSelectedSubject);
 
+const events = transformEvents(
+    selectedSubject ? scheduleInfo.filter(event => event.subjectName === selectedSubject) : scheduleInfo
+  );
 
-    const events = [
-        {
-            title: 'Meeting with Team',
-            start: '2024-06-12T10:00:00',
-            end: '2024-06-12T11:00:00',
-            status: 'attend'
-        },
-        {
-            title: 'Lunch Break',
-            start: '2024-06-12T12:00:00',
-            end: '2024-06-12T13:00:00',
-            status: 'pending'
-        },
-        {
-            title: 'Conference Call',
-            start: '2024-06-13T15:00:00',
-            end: '2024-06-13T16:00:00',
-            status: 'rejected'
-        },
-        {
-            title: 'Birthday Party',
-            start: '2024-06-15T18:00:00',
-            end: '2024-06-15T21:00:00',
-            status: 'attend'
-        }
-    ];
-
-
-    const renderEventContent = (eventInfo: any) => {
+    const renderEventContent = (eventInfo: EventContentArg) => {
         const { start, end, title, extendedProps } = eventInfo.event;
-        const startTime = start.toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' });
-        const endTime = end ? end.toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' }) : '';
+        const startTime = new Date(start as Date).toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' });
+        const endTime = end ? new Date(end as Date).toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' }) : '';
         const status = extendedProps.status;
 
-        // Determine the background color based on the status
+        //styles depending on status
         let backgroundColor;
+        let textDecoration;
         switch (status) {
             case 'attend':
-                backgroundColor = '#8BC34A'; // Green
+                backgroundColor = '#D7F0D6';
                 break;
             case 'rejected':
-                backgroundColor = '#F44336'; // Red
+                backgroundColor = '#FFFFFF';
+                textDecoration = "line-through";
                 break;
             case 'pending':
-                backgroundColor = '#FFC107'; // Yellow
+                backgroundColor = '#F5F5F5';
                 break;
             default:
-                backgroundColor = '#FFFFFF'; // Default color
+                backgroundColor = '#FFFFFF';
         }
 
         return (
-            <div style={{ backgroundColor, padding: '5px', borderRadius: '5px' }}>
-                <div>
+            <div style={{ backgroundColor, textDecoration, padding: '5px', borderRadius: '5px' }}>
+                <div className="event-time">
                     {startTime} - {endTime}
                 </div>
-                <div>
+                <div className="event-title">
                     {title}
                 </div>
             </div>
@@ -91,6 +74,7 @@ export default function Calendar () {
                     list: 'Список'
                 }}
                 dayMaxEventRows={true}
+                handleWindowResize={true}
             />
         </section>
     )

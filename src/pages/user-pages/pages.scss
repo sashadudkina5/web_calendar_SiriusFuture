@@ -2,12 +2,14 @@
     display: grid;
     grid-template-columns: 285px 1fr;
     grid-template-rows: auto 1fr;  
-    max-height: 100vh;
-    padding-bottom: 112px;
+    height: calc(100vh - 112px);
+    margin-bottom: 112px;
+    box-sizing: border-box;
 }
 
 .main-content {
     margin-top: 20px;
     margin-right: 32px;
     margin-left: 50px;
+    min-height: calc(100vh - 150px);
 }

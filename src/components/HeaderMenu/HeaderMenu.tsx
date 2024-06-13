@@ -17,6 +17,7 @@ export default function HeaderMenu() {
 
   const handleLogout = () => {
     dispatch(logout());
+    dispatch(closeHeaderMenu());
   };
 
   return (

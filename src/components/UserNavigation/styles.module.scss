@@ -13,8 +13,9 @@
     grid-row: 1 / -1;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: calc(100% - 24px); 
 }
+
 .navigation_wrapper {
     flex: 1;
 }
@@ -33,18 +34,21 @@
 }
 
 .navigation_item a {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    text-decoration: none;
-    font-size: 15px;
-    padding: 6px;
-    padding-left: 45px;
-    width: 100%;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 6px;
+  padding-left: 45px;
+  width: 100%;
+  background-color: transparent;
 }
 
-.active {
-    background-color: black;
+.navigation_item a.active {
+  background-color: $main_button_color;
+  color: $contrast_text_color;
+  border-radius: 0 30px 30px 0;
 }
 
 

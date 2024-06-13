@@ -8,11 +8,13 @@ export interface Subject {
     endTime: string;
     status: SubjectStatus;
     paid: boolean;
+    teacher: string;
 }
 
 export interface loginPaylpad {
     userInfo: UserInfo | null;
     extraUserInfo:  UserInfo [];
+    scheduleInfo:Subject[];
 }
 
 export interface UserInfo {
@@ -29,6 +31,7 @@ export interface AuthState {
     userInfo: UserInfo | null;
     scheduleInfo: Subject[];
     extraUserInfo: UserInfo[];
+    selectedSubjects: string| undefined,
 }
 
 export interface ITestUserAuth {
