@@ -28,6 +28,8 @@ Use the following credentials to access the application:
 6. Mock Data: All data displayed is mock data fetched from Redux and updated through actions.
 
 7. Toggle between users to display different data.
+   
+8. Protected Routes & Authentication: Manage user access with auto redirection for authenticated sessions and protected routes.
 
 
 ## Additional Notes
