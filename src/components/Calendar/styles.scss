@@ -2,11 +2,11 @@
 
 // Custom styles for FullCalendar
 .calendar_section {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 250px); 
-    max-height: calc(100vh - 250px);
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 250px);
+  max-height: calc(100vh - 250px);
+  overflow: hidden;
 
 
 
@@ -14,9 +14,10 @@
     border-top: none;
     border-left: none;
   }
-  
 
-  .fc .fc-theme-standard td, .fc-theme-standard th {
+
+  .fc .fc-theme-standard td,
+  .fc-theme-standard th {
     border-right: none;
   }
 
@@ -82,7 +83,7 @@
 
   .fc-daygrid-day {
     &.fc-day-today {
-        background-color: $contrast_text_color;
+      background-color: $contrast_text_color;
       color: $notification_color;
     }
   }
@@ -97,8 +98,8 @@
     border-radius: 5px;
 
     & div {
-        width: 100%;
-        color: $main_text_color;
+      width: 100%;
+      color: $main_text_color;
     }
 
     & .event-title {
@@ -106,6 +107,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
       word-wrap: break-word;
-  }
+    }
   }
 }

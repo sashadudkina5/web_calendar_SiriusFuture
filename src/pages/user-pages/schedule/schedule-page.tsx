@@ -1,9 +1,12 @@
-import React from 'react';
+import React from "react";
 import Calendar from "../../../components/Calendar/Calendar";
-import { getSelectedSubject, getUniqueSubjects } from "../../../service/selectors";
+import {
+  getSelectedSubject,
+  getUniqueSubjects,
+} from "../../../service/selectors";
 import { useAppSelector, useAppDispatch } from "../../../service/store";
 import styles from "./styles.module.scss";
-import { setSelectedSubject } from '../../../service/slices/authSlice';
+import { setSelectedSubject } from "../../../service/slices/authSlice";
 
 export default function SchedulePage() {
   const uniqueSubjects = useAppSelector(getUniqueSubjects);
@@ -26,8 +29,10 @@ export default function SchedulePage() {
             onChange={handleSubjectChange}
           >
             <option value="">Выбрать предмет</option>
-            {uniqueSubjects.map(subject => (
-              <option key={subject} value={subject}>{subject}</option>
+            {uniqueSubjects.map((subject) => (
+              <option key={subject} value={subject}>
+                {subject}
+              </option>
             ))}
           </select>
         </label>

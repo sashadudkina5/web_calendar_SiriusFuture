@@ -8,7 +8,7 @@
     background-image: url("../../images/gift.png");
     background-repeat: no-repeat;
     background-position: bottom 0px right 0px;
-    
+
 
     & a {
         background-color: $gift_link_color;
@@ -24,6 +24,7 @@
     margin: 0;
     margin-bottom: 15px;
     font-size: 20px;
+    font-weight: 600;
 }
 
 .gift_description {

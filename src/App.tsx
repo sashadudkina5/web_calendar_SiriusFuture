@@ -7,15 +7,15 @@ function App() {
   return (
     <div>
       <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route
-            path="/user/*"
-            element={
-              <ProtectedRouteElement>
-                <MainUserPage />
-              </ProtectedRouteElement>
-            }
-          />
+        <Route path="/" element={<LoginPage />} />
+        <Route
+          path="/user/*"
+          element={
+            <ProtectedRouteElement>
+              <MainUserPage />
+            </ProtectedRouteElement>
+          }
+        />
       </Routes>
     </div>
   );

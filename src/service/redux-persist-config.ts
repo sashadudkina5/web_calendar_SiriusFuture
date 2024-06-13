@@ -1,10 +1,10 @@
-import storage from 'redux-persist/lib/storage';
+import storage from "redux-persist/lib/storage";
 
 //this is needed to store auth state in the browser
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-  whitelist: ['auth'],
+  whitelist: ["auth"],
 };
 
 export default persistConfig;

@@ -12,15 +12,17 @@ import { ReactComponent as QuestionIcon } from "../../images/nav-icons/question.
 import fullLogo from "../../images/full_logo.png";
 import GitOffer from "../GiftOffer/GiftOffer";
 
-
-
 export default function UserNavigation() {
   return (
     <section className={styles.side_section}>
-      <img className={styles.logo} src={fullLogo} alt="Логотип Sirius Future." />
+      <img
+        className={styles.logo}
+        src={fullLogo}
+        alt="Логотип Sirius Future."
+      />
       <nav className={styles.navigation_wrapper}>
         <ul className={styles.navigation_list}>
-        <li className={styles.navigation_item}>
+          <li className={styles.navigation_item}>
             <NavLink
               end
               to="/user"

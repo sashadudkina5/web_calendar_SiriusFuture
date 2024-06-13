@@ -1,4 +1,3 @@
-// ProtectedRoute.tsx
 import { Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getAuthStatus } from "../service/selectors";
@@ -11,7 +10,6 @@ const ProtectedRouteElement: React.FC<IProtectedRouteElementProps> = ({
   children,
 }) => {
   const location = useLocation();
-
   const isAuthenticated = useSelector(getAuthStatus);
 
   if (!isAuthenticated) {

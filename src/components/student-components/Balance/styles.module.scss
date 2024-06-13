@@ -6,7 +6,6 @@
     width: 40%;
 }
 
-
 .balance_title {
     @include user_lessons_blocks_title;
 }
@@ -31,7 +30,7 @@
 }
 
 .balance_list_item {
-@include user_list_items;
+    @include user_list_items;
     word-break: break-all;
     font-size: 18px;
 }
@@ -52,4 +51,4 @@
     font-size: 16px;
     text-align: center;
     margin-top: 20px;
-  }
+}

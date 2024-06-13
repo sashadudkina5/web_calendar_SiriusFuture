@@ -23,7 +23,9 @@ export default function Countdown() {
       }
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
       setCountdown({ days, hours, minutes });
@@ -56,7 +58,9 @@ export default function Countdown() {
         </div>
       </div>
 
-      <button type="button" className={styles.countdown_button}>Button</button>
+      <button type="button" className={styles.countdown_button}>
+        Button
+      </button>
     </article>
   );
 }

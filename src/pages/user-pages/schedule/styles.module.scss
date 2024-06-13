@@ -11,7 +11,7 @@
 }
 
 .change_schedule {
-    @include  user_lessons_blocks_button;
+    @include user_lessons_blocks_button;
     min-width: 344px;
     font-size: 18px;
 }
@@ -21,15 +21,15 @@
     display: flex;
     flex-direction: column;
     margin: 10px 0;
-  }
-  
-  .select_label {
+}
+
+.select_label {
     font-size: 16px;
     margin-bottom: 5px;
     color: #333;
-  }
-  
-  .select_dropdown {
+}
+
+.select_dropdown {
     padding: 10px;
     font-size: 14px;
     border: 1px solid $graphic_color;
@@ -45,5 +45,5 @@
     background-image: url('../../../images/select_dropdown.svg');
     background-repeat: no-repeat;
     background-position: right 10px center;
-    background-size:10px 10px;
-  }
+    background-size: 10px 10px;
+}
