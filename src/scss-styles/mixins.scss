@@ -41,6 +41,17 @@
     border: none;
     color: $main_text_color;
     font-size: 20px;
+
+    &:focus,
+    &:hover {
+        background-color: $main_button_color;
+        color: $contrast_text_color;
+    }
+
+    &:active {
+        background-color: $inputs_text_color;
+    }
+
 }
 
 @mixin user_list_items {

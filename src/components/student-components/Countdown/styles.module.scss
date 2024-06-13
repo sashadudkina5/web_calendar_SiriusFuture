@@ -30,6 +30,18 @@
     border: 1px dashed $inputs_text_color;
     border-radius: 30px;
     color: $inputs_text_color;
+
+    &:focus,
+    &:hover {
+        border: 1px dashed $main_button_color;
+        background-color: $calendar_grid;
+    }
+
+    &:active {
+        background-color: $inputs_text_color;
+        color: $contrast_text_color;
+
+    }
 }
 
 .countdown_time {

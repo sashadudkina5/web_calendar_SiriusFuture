@@ -27,7 +27,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   color: $main_text_color;
-
 }
 
 code {
@@ -42,4 +41,10 @@ code {
 :root {
   --fc-border-color: #ECECEC;
   --fc-bg-event-color: transparent;
+}
+button {
+  font-family: "CirceRounded", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+               'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

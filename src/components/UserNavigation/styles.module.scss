@@ -45,6 +45,24 @@
     background-color: transparent;
 }
 
+.navigation_item a.active path {
+    stroke: $contrast_text_color;
+}
+
+
+.navigation_item a.active svg.calendar-icon path {
+    stroke: $contrast_text_color;
+}
+
+.navigation_item:focus a,
+.navigation_item:hover a,
+.navigation_item:active a {
+    background-color: $student_blocks;
+    color: $contrast_text_color;
+    border-radius: 0 30px 30px 0;
+    color: $main_text_color;
+}
+
 .navigation_item a.active {
     background-color: $main_button_color;
     color: $contrast_text_color;

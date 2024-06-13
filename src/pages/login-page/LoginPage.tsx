@@ -41,6 +41,10 @@ export default function LoginPage() {
         return lang === "RU" ? "Нет аккаунта?" : "Don't have an account?";
       case "register":
         return lang === "RU" ? "Зарегистрироваться" : "Register";
+      case "error":
+        return lang === "RU"
+          ? "Неверный логин или пароль"
+          : "Invalid email or password";
       default:
         return "";
     }
@@ -94,7 +98,7 @@ export default function LoginPage() {
       ); //the data is passed here only to imitate backend response and update store data
       navigate("/user");
     } else {
-      dispatch(loginFailure("Invalid email or password"));
+      dispatch(loginFailure(getText("error")));
     }
   };
 

@@ -87,6 +87,15 @@
     width: 100%;
     border-radius: 30px;
     border: none;
+
+    &:focus,
+    &:hover {
+        background-color: $active_color;
+    }
+
+    &:active {
+        background-color: $inputs_text_color;
+    }
 }
 
 .login_options {

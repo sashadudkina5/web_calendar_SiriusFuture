@@ -30,7 +30,7 @@ export const scheduleInfo: Subject[] = [
     startTime: "2024-06-01T13:00:00",
     endTime: "2024-06-01T13:45:00",
     status: "attend",
-    paid: true,
+    paid: false,
     teacher: "Teacher A",
   },
   {
@@ -57,7 +57,7 @@ export const scheduleInfo: Subject[] = [
     startTime: "2024-06-02T13:00:00",
     endTime: "2024-06-02T13:45:00",
     status: "attend",
-    paid: true,
+    paid: false,
     teacher: "Teacher B",
   },
   {
@@ -93,7 +93,7 @@ export const scheduleInfo: Subject[] = [
     startTime: "2024-06-08T13:00:00",
     endTime: "2024-06-08T13:45:00",
     status: "rejected",
-    paid: true,
+    paid: false,
     teacher: "Teacher C",
   },
   {
@@ -120,7 +120,7 @@ export const scheduleInfo: Subject[] = [
     startTime: "2024-06-07T13:00:00",
     endTime: "2024-06-07T13:45:00",
     status: "pending",
-    paid: true,
+    paid: false,
     teacher: "Teacher B",
   },
   {
@@ -165,7 +165,7 @@ export const scheduleInfo: Subject[] = [
     startTime: "2024-06-23T13:00:00",
     endTime: "2024-06-23T13:45:00",
     status: "attend",
-    paid: true,
+    paid: false,
     teacher: "Teacher C",
   },
 ];

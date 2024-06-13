@@ -49,10 +49,21 @@
     padding-right: 22px;
     background-color: transparent;
     border: none;
-
     background-image: url("../../images/openMenuIcon.svg");
     background-position: right 0px top 50%;
     background-repeat: no-repeat;
+    border-radius: 10px;
+
+
+  &:focus,
+  &:hover {
+      background-color: $decoration_color;
+  }
+
+  &:active {
+      background-color: $gift_link_color;
+  }
+
 }
 
 .header_content {

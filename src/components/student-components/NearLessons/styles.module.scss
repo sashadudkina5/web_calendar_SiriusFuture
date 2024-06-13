@@ -84,16 +84,42 @@
     color: $contrast_text_color;
     background-color: $main_button_color;
     font-size: 12px;
+
+    &:focus,
+    &:hover {
+        background-color: $countdown;
+        color: $main_text_color;
+    }
+
+    &:active {
+        background-color: $inputs_text_color;
+    }
 }
 
 .lesson_button_active {
     background-color: $contrast_text_color;
     color: $main_text_color;
     border: 1px solid $main_button_color;
+
+    &:focus,
+    &:hover {
+        background-color: $main_button_color;
+        color: $contrast_text_color;
+    }
+
+    &:active {
+        background-color: $inputs_text_color;
+    }
 }
 
 .no_lessons_message {
     font-size: 16px;
     text-align: center;
     margin-top: 20px;
+}
+
+.lesson_teacher_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }

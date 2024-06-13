@@ -36,6 +36,7 @@
   background-color: transparent;
   top: 12px;
   right: 12px;
+
 }
 
 .close_button:before,
@@ -75,6 +76,16 @@
   &.extra_item {
     background-color: $contrast_text_color;
     margin: 0;
+
+    &:focus,
+    &:hover {
+        background-color: $decoration_color;
+    }
+  
+    &:active {
+        background-color: $gift_link_color;
+    }
+
   }
 }
 
@@ -106,8 +117,19 @@
   width: 100%;
   border: none;
   background-color: $contrast_text_color;
-  padding: 10px 0;
+  padding: 10px 5px;
   margin-top: 12px;
+  border-radius: 10px;
+
+  &:focus,
+  &:hover {
+      background-color: $decoration_color;
+  }
+
+  &:active {
+      background-color: $gift_link_color;
+  }
+
 }
 
 

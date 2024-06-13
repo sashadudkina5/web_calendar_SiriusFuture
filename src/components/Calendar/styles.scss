@@ -78,6 +78,17 @@
       border-radius: 15px;
       font-size: 12px;
       padding: 8px 21px;
+
+      &:focus,
+      &:hover {
+        border: 1px solid $active_color;
+        background-color: $student_blocks;
+      }
+  
+      &:active {
+        background-color: $main_button_color;
+        color: $contrast_text_color;
+      }
     }
   }
 
@@ -109,4 +120,13 @@
       word-wrap: break-word;
     }
   }
+}
+
+.event-time {
+  position: relative;
+}
+
+.event-pay-status {
+  position: absolute;
+  right: 0;
 }

@@ -2,6 +2,7 @@ import { getUserSchedule } from "../../../service/selectors";
 import { useAppSelector } from "../../../service/store";
 import { monthDeclensions } from "../../../utils/constants";
 import styles from "./styles.module.scss";
+import { ReactComponent as TeacherIcon } from "../../../images/teacher.svg";
 
 export default function NearLessons() {
   const scheduleInfo = useAppSelector(getUserSchedule);
@@ -50,7 +51,11 @@ export default function NearLessons() {
                   minute: "2-digit",
                 })}
               </p>
-              <p className={styles.lesson_teacher}>{lesson.teacher}</p>
+              <div className={styles.lesson_teacher_wrapper}>
+                <TeacherIcon />
+                <p className={styles.lesson_teacher}>{lesson.teacher}</p>
+              </div>
+
               <div className={styles.lesson_buttons_wrapper}>
                 <button type="button" className={styles.lesson_button_active}>
                   Button
