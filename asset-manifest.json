@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/web_calendar_SiriusFuture/static/css/main.b67fd4e5.css",
+    "main.css": "/web_calendar_SiriusFuture/static/css/main.56344d41.css",
     "main.js": "/web_calendar_SiriusFuture/static/js/main.fbadb7f4.js",
     "static/js/453.ed3810f9.chunk.js": "/web_calendar_SiriusFuture/static/js/453.ed3810f9.chunk.js",
     "static/media/CirceRounded-Regular5.woff": "/web_calendar_SiriusFuture/static/media/CirceRounded-Regular5.96503333a2ad55ce3aea.woff",
@@ -24,12 +24,12 @@
     "static/media/exit.svg": "/web_calendar_SiriusFuture/static/media/exit.65712a758914cd0e3684baa563077a8b.svg",
     "static/media/select_dropdown.svg": "/web_calendar_SiriusFuture/static/media/select_dropdown.5faec9f07d3a11affbcf.svg",
     "static/media/openMenuIcon.svg": "/web_calendar_SiriusFuture/static/media/openMenuIcon.d002633c88ed199faed5.svg",
-    "main.b67fd4e5.css.map": "/web_calendar_SiriusFuture/static/css/main.b67fd4e5.css.map",
+    "main.56344d41.css.map": "/web_calendar_SiriusFuture/static/css/main.56344d41.css.map",
     "main.fbadb7f4.js.map": "/web_calendar_SiriusFuture/static/js/main.fbadb7f4.js.map",
     "453.ed3810f9.chunk.js.map": "/web_calendar_SiriusFuture/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b67fd4e5.css",
+    "static/css/main.56344d41.css",
     "static/js/main.fbadb7f4.js"
   ]
 }
